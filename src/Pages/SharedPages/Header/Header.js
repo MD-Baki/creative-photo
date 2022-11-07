@@ -31,8 +31,11 @@ const Header = () => {
                 </div>
                 <div className="navbar-end">
                     <div className="hidden lg:block">
-                        <Link className="btn">Login</Link>
+                        <Link to="/login" className="btn">
+                            Login
+                        </Link>
                     </div>
+
                     <div className="lg:hidden">
                         <button onClick={() => setOpen(!open)}>
                             {open ? (

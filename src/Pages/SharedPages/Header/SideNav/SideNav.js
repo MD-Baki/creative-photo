@@ -42,6 +42,21 @@ const SideNav = () => {
 
                 <ul className="pt-3 space-y-1 text-sm">
                     <li>
+                        <Link
+                            to="/login"
+                            className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out"
+                        >
+                            <FaDoorOpen className="text-lg ml-2 mr-3" />
+                            <span>Login</span>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out">
+                            <FaDoorOpen className="text-lg ml-2 mr-3" />
+                            <span>Sign Up</span>
+                        </Link>
+                    </li>
+                    <li>
                         <Link className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out">
                             <FaDoorOpen className="text-lg ml-2 mr-3" />
                             <span>Log Out</span>
