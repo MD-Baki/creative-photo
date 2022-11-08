@@ -2,12 +2,51 @@ import React from "react";
 import serviceImg from "../../assets/service/service-img.png";
 
 const AddService = () => {
+    const handleAddService = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const serviceName = form.serviceName.value;
+        const servicePrice = form.price.value;
+        const rating = form.rating.value;
+        const servicePhotoURL = form.servicePhotoURL.value;
+        const details = form.details.value;
+
+        const addService = {
+            serviceName,
+            servicePhotoURL,
+            servicePrice,
+            rating,
+            details,
+        };
+
+        fetch("http://localhost:5000/services", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(addService),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                if (data.acknowledged) {
+                    alert("Service Add Successfully");
+                    form.reset();
+                }
+            })
+            .catch((err) => console.error(err));
+    };
+
     return (
         <div className="mx-auto w-11/12 lg:w-10/12 pt-20 pb-14">
             <img src={serviceImg} alt="" className="w-full" />
 
+            <h2 className="text-3xl font-bold text-center pt-6">
+                Add New Service
+            </h2>
+
             <div className=" bg-[#b3c5ef] bg-opacity-40 p-10 md:p-14 lg:p-20 rounded-lg mt-8">
-                <form>
+                <form onSubmit={handleAddService}>
                     <div className="grid md:grid-cols-2 gap-6">
                         <input
                             name="serviceName"
@@ -38,7 +77,7 @@ const AddService = () => {
                             required
                         />
                         <textarea
-                            name="message"
+                            name="details"
                             className="textarea md:col-span-2 h-60"
                             placeholder="Service Details"
                             required
@@ -46,8 +85,8 @@ const AddService = () => {
                     </div>
                     <input
                         type="submit"
-                        value="Order Confirm"
-                        className="mt-8 btn btn-block capitalize btn-info"
+                        value="Add Service"
+                        className="mt-8 btn btn-block capitalize bg-yellow-600 hover:bg-yellow-700 border-0"
                     />
                 </form>
             </div>
