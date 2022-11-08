@@ -47,7 +47,7 @@ const SignUp = () => {
     };
 
     return (
-        <div className="mx-auto w-11/12 lg:w-10/12 grid lg:grid-cols-2 items-center py-10">
+        <div className="mx-auto w-11/12 lg:w-10/12 pt-24 grid lg:grid-cols-2 items-center pb-10">
             <div>
                 <img src={login} alt="" />
             </div>

@@ -39,7 +39,7 @@ const Login = () => {
     };
 
     return (
-        <div className="mx-auto w-11/12 lg:w-10/12 grid lg:grid-cols-2 items-center py-10">
+        <div className="mx-auto w-11/12 lg:w-10/12 grid lg:grid-cols-2 items-center pt-24 pb-10">
             <div>
                 <img src={loginImg} alt="" />
             </div>

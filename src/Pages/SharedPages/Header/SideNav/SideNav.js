@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import "./SideNav.css";
 import {
     FaDoorOpen,
-    FaUserTie,
+    FaEdit,
     FaHome,
     FaServicestack,
-    FaBlog,
+    FaLayerGroup,
+    FaFileAlt,
+    FaSignInAlt,
 } from "react-icons/fa";
+import { SiGnuprivacyguard } from "react-icons/si";
 import { AuthContext } from "../../../Authentication/AuthProvider/AuthProvider";
 
 const SideNav = () => {
@@ -20,7 +23,7 @@ const SideNav = () => {
     };
 
     return (
-        <div className="side-nav h-screen p-3 space-y-2 w-60 bg-[#0e1525] z-50">
+        <div className="side-nav h-screen p-3 space-y-2 w-60 bg-[#0e1525]">
             <div className="py-2 border-b border-gray-700">
                 {user?.uid ? (
                     <div className="flex items-center gap-3">
@@ -57,9 +60,28 @@ const SideNav = () => {
                             <span>Services</span>
                         </Link>
                     </li>
+                    {user && (
+                        <>
+                            <li>
+                                <Link className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out">
+                                    <FaFileAlt className="text-lg ml-2 mr-3" />
+                                    <span>My Reviews</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/serviceAdd"
+                                    className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out"
+                                >
+                                    <FaEdit className="text-lg ml-2 mr-3" />
+                                    <span>Abb Service</span>
+                                </Link>
+                            </li>
+                        </>
+                    )}
                     <li>
                         <Link className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out">
-                            <FaBlog className="text-lg ml-2 mr-3" />
+                            <FaLayerGroup className="text-lg ml-2 mr-3" />
                             <span>Blog</span>
                         </Link>
                     </li>
@@ -84,7 +106,7 @@ const SideNav = () => {
                                 to="/login"
                                 className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out"
                             >
-                                <FaDoorOpen className="text-lg ml-2 mr-3" />
+                                <FaSignInAlt className="text-lg ml-2 mr-3" />
                                 <span>Login</span>
                             </Link>
                         </li>
@@ -93,7 +115,7 @@ const SideNav = () => {
                                 to="/signup"
                                 className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out"
                             >
-                                <FaDoorOpen className="text-lg ml-2 mr-3" />
+                                <SiGnuprivacyguard className="text-lg ml-2 mr-3" />
                                 <span>Sign Up</span>
                             </Link>
                         </li>
