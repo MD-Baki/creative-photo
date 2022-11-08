@@ -4,7 +4,7 @@ import img1 from "../../../assets/banner/banner-1.jpg";
 const Banner = () => {
     return (
         <div
-            className="hero h-[550px] lg:rounded-xl mt-5"
+            className="hero h-[350px] md:h-[550px] lg:rounded-xl mt-5"
             style={{
                 backgroundImage: `url(${img1})`,
             }}

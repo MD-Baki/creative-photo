@@ -34,7 +34,7 @@ const Header = () => {
                                 <Link to="/">Hone</Link>
                             </li>
                             <li>
-                                <Link>Services</Link>
+                                <Link to="/services">Services</Link>
                             </li>
                             {user && (
                                 <>
@@ -43,7 +43,7 @@ const Header = () => {
                                     </li>
                                     <li>
                                         <Link to="/serviceAdd">
-                                            Abb Service
+                                            Add Service
                                         </Link>
                                     </li>
                                 </>

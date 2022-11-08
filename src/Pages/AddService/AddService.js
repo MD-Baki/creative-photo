@@ -1,5 +1,7 @@
 import React from "react";
 import serviceImg from "../../assets/service/service-img.png";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddService = () => {
     const handleAddService = (event) => {
@@ -19,7 +21,7 @@ const AddService = () => {
             details,
         };
 
-        fetch("http://localhost:5000/services", {
+        fetch("http://localhost:5000/service", {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -30,7 +32,10 @@ const AddService = () => {
             .then((data) => {
                 console.log(data);
                 if (data.acknowledged) {
-                    alert("Service Add Successfully");
+                    toast.success("Service Add Successfully", {
+                        theme: "dark",
+                        position: "top-center",
+                    });
                     form.reset();
                 }
             })
@@ -90,6 +95,7 @@ const AddService = () => {
                     />
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };
