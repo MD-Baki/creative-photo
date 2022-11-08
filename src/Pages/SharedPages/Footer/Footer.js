@@ -5,30 +5,28 @@ import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <footer className="p-10 bg-[#0e1525]">
-            <div className="mx-auto w-11/12 lg:w-10/12 flex flex-wrap justify-between">
+        <footer className="bg-[#0e1525]">
+            <div className="footer footer-center py-10">
                 <div>
                     <Link>
                         <img src={logo} alt="" className="h-[60px]" />
                     </Link>
-                    <p>
-                        ACME Industries Ltd.
-                        <br />
-                        Providing reliable tech since 1992
+                    <p className="font-medium text-lg pt-1">
+                        CREATIVE <span className="font-light">PHOTO</span>
                     </p>
-                </div>
-                <div>
-                    <span className="footer-title">Social</span>
-                    <div className="grid grid-flow-col gap-4 text-lg mt-2">
-                        <a href="https://www.facebook.com/" target="blanck">
-                            <FaFacebookF />
-                        </a>
-                        <a href="https://www.facebook.com/" target="blanck">
-                            <FaTwitter />
-                        </a>
-                        <a href="https://www.facebook.com/" target="blanck">
-                            <FaLinkedinIn />
-                        </a>
+                    <p>Copyright © 2022 - All right reserved</p>
+                    <div>
+                        <div className="grid grid-flow-col gap-4 pt-2 text-lg">
+                            <a href="https://www.facebook.com/" target="blanck">
+                                <FaFacebookF />
+                            </a>
+                            <a href="https://www.facebook.com/" target="blanck">
+                                <FaTwitter />
+                            </a>
+                            <a href="https://www.facebook.com/" target="blanck">
+                                <FaLinkedinIn />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

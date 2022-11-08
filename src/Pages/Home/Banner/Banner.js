@@ -3,18 +3,21 @@ import img1 from "../../../assets/banner/banner-1.jpg";
 
 const Banner = () => {
     return (
-        <div className="carousel w-full">
-            <div id="slide1" className="carousel-item relative w-full">
-                <div className="w-full h-[550px] overflow-hidden">
-                    <img src={img1} alt="" className="w-full" />
-                </div>
-                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide4" className="btn btn-circle">
-                        ❮
-                    </a>
-                    <a href="#slide2" className="btn btn-circle">
-                        ❯
-                    </a>
+        <div
+            className="hero h-[550px] lg:rounded-xl mt-5"
+            style={{
+                backgroundImage: `url(${img1})`,
+            }}
+        >
+            <div className="hero-overlay bg-black bg-opacity-60 lg:rounded-xl"></div>
+            <div className="hero-content text-center text-neutral-content">
+                <div className="max-w-md">
+                    <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                    <p className="mb-5">
+                        A good snapshot keeps a moment that s gone from running
+                        away.
+                    </p>
+                    <button className="btn btn-outline">Get Started</button>
                 </div>
             </div>
         </div>
