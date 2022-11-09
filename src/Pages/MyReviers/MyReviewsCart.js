@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-const MyReviewsCart = ({ reviewItem }) => {
+const MyReviewsCart = ({ reviewItem, handleDelete }) => {
     const { _id, userName, photo, rating, review, email, service } = reviewItem;
     const [serviceReview, setServiceReview] = useState({});
 
@@ -33,8 +34,15 @@ const MyReviewsCart = ({ reviewItem }) => {
             <div className="divider m-0"></div>
             <p className="text-center text-sm font-light">{review}</p>
             <div className="grid grid-cols-2 gap-3">
-                <button className="btn btn-block btn-outline">Delete</button>
-                <button className="btn btn-block btn-outline">Edit</button>
+                <button
+                    onClick={() => handleDelete(_id)}
+                    className="btn btn-block btn-outline"
+                >
+                    Delete
+                </button>
+                <Link to={`/edit/${_id}`}>
+                    <button className="btn btn-block btn-outline">Edit</button>
+                </Link>
             </div>
         </div>
     );

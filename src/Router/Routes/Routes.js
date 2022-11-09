@@ -3,6 +3,7 @@ import Login from "../../Pages/Authentication/Login/Login";
 import SignUp from "../../Pages/Authentication/SignUp/SignUp";
 import Home from "../../Pages/Home/Home";
 import MyReviews from "../../Pages/MyReviers/MyReviews";
+import ReviewEdit from "../../Pages/ReviewEdit/ReviewEdit";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/Services/Services";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -54,6 +55,16 @@ const router = createBrowserRouter([
                 element: <SignUp></SignUp>,
             },
         ],
+    },
+    {
+        path: "/edit/:id",
+        element: (
+            <PrivateRoute>
+                <ReviewEdit></ReviewEdit>
+            </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+            fetch(`http://localhost:5000/reviews/${params.id}`),
     },
 ]);
 
