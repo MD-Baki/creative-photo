@@ -66,7 +66,10 @@ const SideNav = () => {
                     {user && (
                         <>
                             <li>
-                                <Link className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out">
+                                <Link
+                                    to="/reviews"
+                                    className="flex items-center hover:bg-[#b3c5ef] hover:text-[#0e1525] py-2 rounded-md transition duration-300 ease-in-out"
+                                >
                                     <FaFileAlt className="text-lg ml-2 mr-3" />
                                     <span>My Reviews</span>
                                 </Link>

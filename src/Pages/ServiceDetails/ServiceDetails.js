@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import ReviewForm from "./ReviewForm/ReviewForm";
+import { AuthContext } from "../Authentication/AuthProvider/AuthProvider";
 
 const ServiceDetails = () => {
-    const { serviceName, servicePhotoURL, servicePrice, rating, details } =
+    const { user } = useContext(AuthContext);
+    const { _id, serviceName, servicePhotoURL, servicePrice, rating, details } =
         useLoaderData();
 
     return (
@@ -192,15 +194,17 @@ const ServiceDetails = () => {
                 </div>
             </div>
 
-            <div className="review py-16">
-                <div className="text-center">
-                    <p className="text-sm font-medium tracking-widest uppercase">
-                        Will pass on your valuable review
-                    </p>
-                    <div className="divider my-0"></div>
+            {user && (
+                <div className="review py-16">
+                    <div className="text-center">
+                        <p className="text-sm font-medium tracking-widest uppercase">
+                            Will pass on your valuable review
+                        </p>
+                        <div className="divider my-0"></div>
+                    </div>
+                    <ReviewForm _id={_id}></ReviewForm>
                 </div>
-                <ReviewForm></ReviewForm>
-            </div>
+            )}
         </div>
     );
 };
