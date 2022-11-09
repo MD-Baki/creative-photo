@@ -2,8 +2,11 @@ import React from "react";
 import serviceImg from "../../assets/service/service-img.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../Hooks/useTitle";
 
 const AddService = () => {
+    useTitle("Add-Service");
+
     const handleAddService = (event) => {
         event.preventDefault();
         const form = event.target;

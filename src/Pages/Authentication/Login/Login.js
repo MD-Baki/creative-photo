@@ -4,12 +4,14 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import useTitle from "../../../Hooks/useTitle";
 
 const Login = () => {
     const { login, providerLogin } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
     const location = useLocation();
+    useTitle("Login");
 
     const from = location.state?.from?.pathname || "/";
 

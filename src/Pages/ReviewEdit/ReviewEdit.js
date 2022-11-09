@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../Hooks/useTitle";
 
 const ReviewEdit = () => {
     const editReview = useLoaderData();
     const [review, setReview] = useState(editReview);
+    useTitle("Review-Details");
 
     const handleEditReview = (event) => {
         event.preventDefault();

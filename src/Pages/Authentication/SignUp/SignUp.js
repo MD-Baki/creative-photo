@@ -3,10 +3,12 @@ import login from "../../../assets/login/login.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import useTitle from "../../../Hooks/useTitle";
 
 const SignUp = () => {
     const { createUser, updateUserProfile, providerLogin } =
         useContext(AuthContext);
+    useTitle("Sign-Up");
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -118,7 +120,7 @@ const SignUp = () => {
                             <div className="form-control mt-6">
                                 <input
                                     type="submit"
-                                    value="Sign In"
+                                    value="Sign Up"
                                     className="btn capitalize"
                                 />
                             </div>

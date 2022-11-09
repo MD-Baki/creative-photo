@@ -4,10 +4,12 @@ import MyReviewsCart from "./MyReviewsCart";
 import noData from "../../assets/not found/no-data.png";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useTitle from "../../Hooks/useTitle";
 
 const MyReviews = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
+    useTitle("My-Reviews");
 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?email=${user?.email}`)
@@ -44,7 +46,9 @@ const MyReviews = () => {
         <div className="mx-auto w-11/12 lg:w-10/12 pt-24 pb-14">
             {reviews.length > 0 ? (
                 <>
-                    <h2>MY Review {reviews.length}</h2>
+                    <h2 className="text-center text-2xl font-bold">
+                        MY Review
+                    </h2>
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
                         {reviews.map((reviewItem) => (
                             <MyReviewsCart

@@ -23,10 +23,10 @@ const SideNav = () => {
     };
 
     return (
-        <div className="side-nav h-screen p-3 space-y-2 w-60 bg-[#0e1525]">
+        <div className="side-nav h-screen p-3 space-y-2 w-60 bg-[#0e1525] overflow-hidden">
             <div className="py-2 border-b border-gray-700">
                 {user?.uid ? (
-                    <div className="flex items-center gap-3">
+                    <div className="flex flex-wrap justify-center items-center gap-3">
                         <img
                             src={user?.photoURL}
                             alt=""
