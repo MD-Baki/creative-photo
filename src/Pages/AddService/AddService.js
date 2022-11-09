@@ -50,7 +50,7 @@ const AddService = () => {
                 Add New Service
             </h2>
 
-            <div className=" bg-[#b3c5ef] bg-opacity-40 p-10 md:p-14 lg:p-20 rounded-lg mt-8">
+            <div className=" bg-[#b3c5ef] bg-opacity-20 p-10 md:p-14 lg:p-20 rounded-lg mt-8">
                 <form onSubmit={handleAddService}>
                     <div className="grid md:grid-cols-2 gap-6">
                         <input
@@ -91,7 +91,7 @@ const AddService = () => {
                     <input
                         type="submit"
                         value="Add Service"
-                        className="mt-8 btn btn-block capitalize bg-yellow-600 hover:bg-yellow-700 border-0"
+                        className="mt-8 btn btn-block capitalize bg-[#0e1525] hover:bg-[#0e1525] border-0"
                     />
                 </form>
             </div>

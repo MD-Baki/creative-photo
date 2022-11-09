@@ -4,6 +4,7 @@ import SignUp from "../../Pages/Authentication/SignUp/SignUp";
 import Home from "../../Pages/Home/Home";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/Services/Services";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../../Layout/Main");
@@ -19,7 +20,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/serviceAdd",
-                element: <AddService></AddService>,
+                element: (
+                    <PrivateRoute>
+                        <AddService></AddService>
+                    </PrivateRoute>
+                ),
             },
             {
                 path: "/services",
