@@ -1,7 +1,7 @@
 import React from "react";
 
 const ServiceReviewCart = ({ reviewCart }) => {
-    const { _id, userName, photo, rating, review } = reviewCart;
+    const { userName, photo, rating, review } = reviewCart;
 
     return (
         <div className="border-2 border-[#b3c5ef] border-opacity-20 rounded-lg flex flex-col shadow-lg h-fit">
