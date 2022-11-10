@@ -1,11 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import login from "../../../assets/login/login.png";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
 import useTitle from "../../../Hooks/useTitle";
+import { Spinner } from "../../../components/loader/Spinner";
 
 const SignUp = () => {
+    const [loading, setLoading] = useState(true);
     const { createUser, updateUserProfile, providerLogin } =
         useContext(AuthContext);
     useTitle("Sign-Up");
@@ -47,6 +49,15 @@ const SignUp = () => {
             })
             .catch((err) => console.error(err));
     };
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
+
+    if (loading) {
+        return <Spinner></Spinner>;
+    }
 
     return (
         <div className="mx-auto w-11/12 lg:w-10/12 pt-24 grid lg:grid-cols-2 items-center pb-10">
@@ -126,15 +137,12 @@ const SignUp = () => {
                             </div>
                         </form>
                         <div className="divider">OR</div>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div>
                             <button
                                 onClick={handleGoogleSignIn}
                                 className="btn btn-block capitalize"
                             >
                                 Google
-                            </button>
-                            <button className="btn btn-block capitalize">
-                                Github
                             </button>
                         </div>
                         <p className="text-center pt-3">

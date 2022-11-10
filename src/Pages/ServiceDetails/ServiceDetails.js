@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import ReviewForm from "./ReviewForm/ReviewForm";
 import { AuthContext } from "../Authentication/AuthProvider/AuthProvider";
@@ -23,7 +23,7 @@ const ServiceDetails = () => {
                 <div className="text-center mx-auto xl:text-left">
                     <h2 className="text-3xl font-bold pb-5">{serviceName}</h2>
                     <p className="tracking-widest font-light pb-4">{details}</p>
-                    <div className="w-1/3 xl:w-2/3 mx-auto xl:ml-0">
+                    <div className="md:w-1/3 xl:w-2/3 mx-auto xl:ml-0">
                         <div className="flex items-center justify-center border py-3 rounded-md border-[#b3c5ef]">
                             <p>Rating: {rating}</p>
                             <div className="icone pl-3 flex gap-1">
@@ -72,17 +72,24 @@ const ServiceDetails = () => {
 
             <ServiceReview></ServiceReview>
 
-            {user && (
-                <div className="review py-16">
-                    <div className="text-center">
-                        <p className="text-sm font-medium tracking-widest uppercase">
-                            Will pass on your valuable review
-                        </p>
-                        <div className="divider my-0"></div>
-                    </div>
-                    <ReviewForm _id={_id}></ReviewForm>
+            <div className="review py-16">
+                <div className="text-center">
+                    <p className="text-sm font-medium tracking-widest uppercase">
+                        Will pass on your valuable review
+                    </p>
+                    <div className="divider my-0"></div>
                 </div>
-            )}
+                {user?.uid ? (
+                    <ReviewForm _id={_id}></ReviewForm>
+                ) : (
+                    <Link
+                        to="/login"
+                        className="btn btn-block btn-outline mt-5"
+                    >
+                        Login First
+                    </Link>
+                )}
+            </div>
         </div>
     );
 };

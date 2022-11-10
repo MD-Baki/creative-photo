@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const ReviewForm = ({ _id }) => {
-    const { user } = useContext(AuthContext);
+    const { user, refetchReviews, setRefetchReviews } = useContext(AuthContext);
 
     const handleAddReview = (event) => {
         event.preventDefault();
@@ -23,8 +23,7 @@ const ReviewForm = ({ _id }) => {
             rating,
             review,
         };
-
-        fetch("http://localhost:5000/reviews", {
+        fetch(`${process.env.REACT_APP_API_URI}/reviews`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
@@ -33,13 +32,13 @@ const ReviewForm = ({ _id }) => {
         })
             .then((res) => res.json())
             .then((data) => {
-                console.log(data);
                 if (data.acknowledged) {
                     toast.success("Review Add Successfully", {
                         theme: "dark",
                         position: "top-center",
                     });
                     form.reset();
+                    setRefetchReviews(!refetchReviews);
                 }
             })
             .catch((err) => console.error(err));
@@ -81,7 +80,7 @@ const ReviewForm = ({ _id }) => {
                 </div>
                 <input
                     type="submit"
-                    value="Add Service"
+                    value="Add Review"
                     className="mt-8 btn btn-block capitalize bg-[#0e1525] hover:bg-[#0e1525] border-0"
                 />
             </form>

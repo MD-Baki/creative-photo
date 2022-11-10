@@ -7,22 +7,33 @@ import "react-toastify/dist/ReactToastify.css";
 import useTitle from "../../Hooks/useTitle";
 
 const MyReviews = () => {
-    const { user } = useContext(AuthContext);
-    const [reviews, setReviews] = useState([]);
     useTitle("My-Reviews");
+    const { user, logOut } = useContext(AuthContext);
+    const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
-            .then((res) => res.json())
+        fetch(`${process.env.REACT_APP_API_URI}/reviews?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem(
+                    "Photographer-token"
+                )}`,
+            },
+        })
+            .then((res) => {
+                if (res.status === 401 || res.status === 403) {
+                    return logOut();
+                }
+                return res.json();
+            })
             .then((data) => setReviews(data));
-    }, [user?.email]);
+    }, [user?.email, logOut]);
 
     const handleDelete = (id) => {
         const proceed = window.confirm(
             "Are you sure, you want to cancle this review"
         );
         if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
+            fetch(`${process.env.REACT_APP_API_URI}/reviews/${id}`, {
                 method: "DELETE",
             })
                 .then((res) => res.json())

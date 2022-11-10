@@ -24,7 +24,7 @@ const AddService = () => {
             details,
         };
 
-        fetch("http://localhost:5000/service", {
+        fetch(`${process.env.REACT_APP_API_URI}/service`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",

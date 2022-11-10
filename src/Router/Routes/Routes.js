@@ -36,7 +36,9 @@ const router = createBrowserRouter([
                 path: "/service/:id",
                 element: <ServiceDetails></ServiceDetails>,
                 loader: ({ params }) =>
-                    fetch(`http://localhost:5000/services/${params.id}`),
+                    fetch(
+                        `${process.env.REACT_APP_API_URI}/services/${params.id}`
+                    ),
             },
             {
                 path: "/reviews",
@@ -64,7 +66,7 @@ const router = createBrowserRouter([
             </PrivateRoute>
         ),
         loader: ({ params }) =>
-            fetch(`http://localhost:5000/reviews/${params.id}`),
+            fetch(`${process.env.REACT_APP_API_URI}/reviews/${params.id}`),
     },
 ]);
 

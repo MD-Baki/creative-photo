@@ -12,7 +12,7 @@ const ReviewEdit = () => {
     const handleEditReview = (event) => {
         event.preventDefault();
 
-        fetch(`http://localhost:5000/reviews/${editReview._id}`, {
+        fetch(`${process.env.REACT_APP_API_URI}/reviews/${editReview._id}`, {
             method: "PUT",
             headers: { "content-type": "application/json" },
             body: JSON.stringify(review),

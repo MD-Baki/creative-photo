@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 
 const ServicesCard = ({ service }) => {
     const { _id, serviceName, servicePhotoURL, servicePrice, rating, details } =
@@ -8,11 +10,16 @@ const ServicesCard = ({ service }) => {
     return (
         <div className="card p-3 shadow-xl bg-[#b3c5ef] bg-opacity-10">
             <figure>
-                <img
-                    src={servicePhotoURL}
-                    alt=""
-                    className="w-full rounded-lg md:h-[200px] xl:h-[300px]"
-                />
+                <PhotoProvider>
+                    <PhotoView src={servicePhotoURL}>
+                        <img
+                            src={servicePhotoURL}
+                            style={{ objectFit: "cover" }}
+                            alt=""
+                            className="w-full rounded-lg md:h-[200px] xl:h-[300px]"
+                        />
+                    </PhotoView>
+                </PhotoProvider>
             </figure>
             <div className="pt-4">
                 <h2 className="card-title capitalize">{serviceName}</h2>
@@ -25,16 +32,20 @@ const ServicesCard = ({ service }) => {
                         <p className="text-justify">{details}</p>
                     )}
                 </div>
-                <div className="flex justify-between">
-                    <p>
-                        Event fee:{" "}
-                        <span className="font-medium">${servicePrice}</span>
-                    </p>
-                    <p>
-                        Rating: <span className="font-medium">{rating}</span>
-                    </p>
+                <div className="flex items-center">
+                    <p className="font-medium">{rating}</p>
+                    <div className="icone pl-2 flex gap-1 text-sm">
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStar />
+                        <FaStarHalfAlt />
+                    </div>
                 </div>
-                <div className="card-actions pt-2">
+                <p className="text-2xl lg:text-3xl font-medium pb-3 pt-2">
+                    ${servicePrice}
+                </p>
+                <div className="card-actions">
                     <Link
                         to={`/service/${_id}`}
                         className="btn btn-block bg-[#0e1525] hover:bg-[#0e1525] "

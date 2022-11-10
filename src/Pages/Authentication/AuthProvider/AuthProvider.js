@@ -16,6 +16,7 @@ const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [refetchReviews, setRefetchReviews] = useState(false);
 
     const createUser = (email, password) => {
         setLoading(true);
@@ -37,6 +38,7 @@ const AuthProvider = ({ children }) => {
     };
 
     const logOut = () => {
+        localStorage.removeItem("Photographer-token");
         setLoading(true);
         return signOut(auth);
     };
@@ -59,6 +61,8 @@ const AuthProvider = ({ children }) => {
         providerLogin,
         login,
         logOut,
+        refetchReviews,
+        setRefetchReviews,
     };
 
     return (

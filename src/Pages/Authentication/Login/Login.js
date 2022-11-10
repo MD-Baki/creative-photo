@@ -1,12 +1,14 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import loginImg from "../../../assets/login/login.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
-import { FaGoogle, FaGithub } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import useTitle from "../../../Hooks/useTitle";
+import { Spinner } from "../../../components/loader/Spinner";
 
 const Login = () => {
+    const [loading, setLoading] = useState(true);
     const { login, providerLogin } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();
@@ -25,9 +27,28 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+
+                const currentUser = {
+                    email: user.email,
+                };
+                console.log(currentUser);
+
                 form.reset();
                 setError("");
-                navigate(from, { replace: true });
+
+                fetch(`${process.env.REACT_APP_API_URI}/jwt`, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log({ data });
+                        localStorage.setItem("Photographer-token", data.token);
+                        navigate(from, { replace: true });
+                    });
             })
             .catch((error) => {
                 console.error(error);
@@ -40,11 +61,35 @@ const Login = () => {
         providerLogin(googleProvider)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
-                navigate(from, { replace: true });
+
+                const currentUser = {
+                    email: user.email,
+                };
+
+                fetch(`${process.env.REACT_APP_API_URI}/jwt`, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json",
+                    },
+                    body: JSON.stringify(currentUser),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log({ data });
+                        localStorage.setItem("Photographer-token", data.token);
+                        navigate(from, { replace: true });
+                    });
             })
             .catch((err) => console.error(err));
     };
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
+
+    if (loading) return <Spinner />;
 
     return (
         <div className="mx-auto w-11/12 lg:w-10/12 grid lg:grid-cols-2 items-center pt-24 pb-10">
@@ -99,17 +144,13 @@ const Login = () => {
                             {error}
                         </p>
                         <div className="divider">OR</div>
-                        <div className="grid grid-cols-2 gap-4">
+                        <div>
                             <button
                                 onClick={handleGoogleSignIn}
                                 className="btn btn-block capitalize"
                             >
                                 <FaGoogle className="mr-2" />
                                 Google
-                            </button>
-                            <button className="btn btn-block capitalize">
-                                <FaGithub className="mr-2" />
-                                Github
                             </button>
                         </div>
                         <p className="text-center pt-3">

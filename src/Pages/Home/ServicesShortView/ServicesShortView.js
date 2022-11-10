@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ServicesCard from "../../Services/ServicesCard/ServicesCard";
 
 const ServicesShortView = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/services?limit=3")
+        fetch(`${process.env.REACT_APP_API_URI}/services?limit=3`)
             .then((res) => res.json())
             .then((data) => setServices(data));
     }, []);
@@ -20,6 +21,11 @@ const ServicesShortView = () => {
                         service={service}
                     ></ServicesCard>
                 ))}
+            </div>
+            <div className="text-center pt-8">
+                <Link to="/services" className="btn btn-outline px-10">
+                    See All Services
+                </Link>
             </div>
         </div>
     );
