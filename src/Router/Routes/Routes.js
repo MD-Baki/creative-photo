@@ -4,6 +4,7 @@ import SignUp from "../../Pages/Authentication/SignUp/SignUp";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home";
 import MyReviews from "../../Pages/MyReviers/MyReviews";
+import NotFound from "../../Pages/NotFound/NotFound";
 import ReviewEdit from "../../Pages/ReviewEdit/ReviewEdit";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import Services from "../../Pages/Services/Services";
@@ -73,6 +74,7 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
             fetch(`${process.env.REACT_APP_API_URI}/reviews/${params.id}`),
     },
+    { path: "*", element: <NotFound></NotFound> },
 ]);
 
 export default router;
