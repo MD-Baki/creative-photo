@@ -22,8 +22,7 @@ const AboutMe = () => {
                     </h2>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
                         <Link
-                            rel="noopener noreferrer"
-                            href="#"
+                            to="/services"
                             className="px-8 py-3 text-lg font-semibold border border-[#b3c5ef] rounded-md"
                         >
                             My Services
