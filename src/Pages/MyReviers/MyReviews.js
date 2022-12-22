@@ -54,7 +54,11 @@ const MyReviews = () => {
     };
 
     return (
-        <div className="mx-auto w-11/12 lg:w-10/12 pt-24 pb-14">
+        <div
+            data-aos="zoom-out"
+            data-aos-duration="1500"
+            className="mx-auto w-11/12 lg:w-10/12 pt-24 pb-14"
+        >
             {reviews.length > 0 ? (
                 <>
                     <h2 className="text-center text-2xl font-bold">

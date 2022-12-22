@@ -8,10 +8,10 @@ const Blog = () => {
 
     return (
         <div className="grid lg:grid-cols-2 gap-6 justify-center items-center mx-auto w-11/12 lg:w-10/12 pt-24 pb-14">
-            <div>
+            <div data-aos="zoom-in" data-aos-duration="1500">
                 <img src={blogImg} alt="" className="mx-auto" />
             </div>
-            <div>
+            <div data-aos="fade-up" data-aos-duration="1500">
                 <div className="border border-[#b3c5ef] border-opacity-30 rounded-lg overflow-hidden">
                     <div className="flex gap-2 items-center bg-[#b3c5ef] bg-opacity-10 py-4 px-3">
                         <FaAngleDoubleRight />

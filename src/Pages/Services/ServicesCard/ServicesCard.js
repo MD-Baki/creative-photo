@@ -8,7 +8,11 @@ const ServicesCard = ({ service }) => {
         service;
 
     return (
-        <div className="card p-3 shadow-xl bg-[#b3c5ef] bg-opacity-10">
+        <div
+            data-aos="fade-up"
+            data-aos-duration="1500"
+            className="card p-3 shadow-xl bg-[#b3c5ef] bg-opacity-10"
+        >
             <figure>
                 <PhotoProvider>
                     <PhotoView src={servicePhotoURL}>

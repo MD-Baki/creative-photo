@@ -47,13 +47,23 @@ const AddService = () => {
 
     return (
         <div className="mx-auto w-11/12 lg:w-10/12 pt-20 pb-14">
-            <img src={serviceImg} alt="" className="w-full" />
+            <img
+                data-aos="flip-right"
+                data-aos-duration="1500"
+                src={serviceImg}
+                alt=""
+                className="w-full"
+            />
 
             <h2 className="text-3xl font-bold text-center pt-6">
                 Add New Service
             </h2>
 
-            <div className=" bg-[#b3c5ef] bg-opacity-20 p-10 md:p-14 lg:p-20 rounded-lg mt-8">
+            <div
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                className=" bg-[#b3c5ef] bg-opacity-20 p-10 md:p-14 lg:p-20 rounded-lg mt-8"
+            >
                 <form onSubmit={handleAddService}>
                     <div className="grid md:grid-cols-2 gap-6">
                         <input

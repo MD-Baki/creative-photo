@@ -4,6 +4,8 @@ import servicesBanner from "../../../assets/service/services-banner.jpg";
 const ServicesBanner = () => {
     return (
         <div
+            data-aos="flip-left"
+            data-aos-duration="1500"
             className="hero h-[300px] lg:rounded-xl mt-5"
             style={{
                 backgroundImage: `url(${servicesBanner})`,

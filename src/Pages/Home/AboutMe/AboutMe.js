@@ -6,14 +6,18 @@ const AboutMe = () => {
     return (
         <section className="py-16">
             <div className="flex flex-col justify-center px-6 mx-auto lg:flex-row lg:justify-between items-center">
-                <div className="">
+                <div data-aos="fade-left" data-aos-duration="1500">
                     <img
                         src={aboutImg}
                         alt=""
                         className="object-contain bg-[#b3c5ef] bg-opacity-10 rounded-xl"
                     />
                 </div>
-                <div className="px-6 text-center pt-8 lg:pt-0 lg:text-left">
+                <div
+                    data-aos="fade-right"
+                    data-aos-duration="1500"
+                    className="px-6 text-center pt-8 lg:pt-0 lg:text-left"
+                >
                     <h4 className="uppercase text-md font-light">About Me</h4>
                     <h2 className="text-xl font-bold pt-2 pb-6 max-w-lg">
                         I'm MD Abdulla, a photographer. My passion is taking

@@ -6,6 +6,7 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 import useTitle from "../../../Hooks/useTitle";
 import { Spinner } from "../../../components/loader/Spinner";
+import { toast } from "react-toastify";
 
 const Login = () => {
     const [loading, setLoading] = useState(true);
@@ -27,6 +28,7 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                toast.success("Login Successfully");
 
                 const currentUser = {
                     email: user.email,
@@ -78,6 +80,7 @@ const Login = () => {
                         console.log({ data });
                         localStorage.setItem("Photographer-token", data.token);
                         navigate(from, { replace: true });
+                        toast.success("User Login Successfully");
                     });
             })
             .catch((err) => console.error(err));
@@ -93,11 +96,15 @@ const Login = () => {
 
     return (
         <div className="mx-auto w-11/12 lg:w-10/12 grid lg:grid-cols-2 items-center pt-24 pb-10">
-            <div>
+            <div data-aos="zoom-in" data-aos-duration="1500">
                 <img src={loginImg} alt="" />
             </div>
             <div className="flex-col xl:px-16">
-                <div className="w-full shadow-2xl border-2 border-[#b3c5ef] rounded-xl">
+                <div
+                    data-aos="zoom-out"
+                    data-aos-duration="1500"
+                    className="w-full shadow-2xl border-2 border-[#b3c5ef] rounded-xl"
+                >
                     <div className="text-center pt-4">
                         <h1 className="text-5xl font-bold">Login now</h1>
                     </div>

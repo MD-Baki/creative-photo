@@ -23,7 +23,7 @@ const ServiceReview = () => {
     if (loading) return <Spinner />;
 
     return (
-        <div className="clint pt-6">
+        <div data-aos="fade-up" data-aos-duration="1500" className="clint pt-6">
             <div className="text-center">
                 <p className="text-sm font-medium tracking-widest">
                     WHAT MY CLIENTS SAY

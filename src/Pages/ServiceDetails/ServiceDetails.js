@@ -16,11 +16,17 @@ const ServiceDetails = () => {
         <div className="mx-auto w-11/12 lg:w-10/12 pt-24 pb-12">
             <div className="grid xl:grid-cols-2 gap-6 items-center">
                 <img
+                    data-aos="zoom-out"
+                    data-aos-duration="1500"
                     src={servicePhotoURL}
                     alt=""
                     className="w-full rounded-lg"
                 />
-                <div className="text-center mx-auto xl:text-left">
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    className="text-center mx-auto xl:text-left"
+                >
                     <h2 className="text-3xl font-bold pb-5">{serviceName}</h2>
                     <p className="tracking-widest font-light pb-4">{details}</p>
                     <div className="md:w-1/3 xl:w-2/3 mx-auto xl:ml-0">
@@ -37,7 +43,7 @@ const ServiceDetails = () => {
                     </div>
                 </div>
             </div>
-            <div className="py-12">
+            <div data-aos="fade-up" data-aos-duration="1500" className="py-12">
                 <div className="hading text-center">
                     <h2 className="text-2xl font-bold pb-2">PRICING</h2>
                     <p className="text-sm font-medium tracking-widest">
@@ -72,7 +78,11 @@ const ServiceDetails = () => {
 
             <ServiceReview></ServiceReview>
 
-            <div className="review py-16">
+            <div
+                data-aos="fade-up"
+                data-aos-duration="1500"
+                className="review py-16"
+            >
                 <div className="text-center">
                     <p className="text-sm font-medium tracking-widest uppercase">
                         Will pass on your valuable review

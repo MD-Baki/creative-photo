@@ -13,7 +13,9 @@ const ServicesShortView = () => {
 
     return (
         <div className="pb-16">
-            <h2 className="text-3xl font-bold text-center pb-8">My Services</h2>
+            <h2 className="text-3xl font-bold text-center pb-8 uppercase">
+                My Services
+            </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6  px-5 lg:px-0">
                 {services.map((service) => (
                     <ServicesCard

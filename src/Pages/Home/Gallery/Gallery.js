@@ -4,10 +4,14 @@ const Gallery = () => {
     return (
         <div>
             <section className="pb-16">
-                <h2 className="text-3xl font-bold text-center pb-6">
+                <h2 className="text-3xl font-bold text-center pb-6 uppercase">
                     My Photography
                 </h2>
-                <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
+                <div
+                    data-aos="fade-up"
+                    data-aos-duration="1500"
+                    className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4"
+                >
                     <img
                         src="https://source.unsplash.com/random/301x301/"
                         alt=""
